@@ -17,6 +17,9 @@ The following environment variables can be set, otherwise their default value in
 test-wallet.json is included in this project, it was created with the [web3j cli](http://docs.web3j.io/4.8.7/command_line_tools/#wallet-tools) `web3j wallet create`
 Your running Ethereum network may need to allocate this wallet's address some funds for the contract creation to work.
 
+This project can also use raw private key instead of wallet file. Manually assign `org.web3j.Web3ContractCreation.USE_PRV_KEY_CREDS` to `true`
+and update value of `org.web3j.Web3ContractCreation.TEST_PRV_KEY`
+
 If it's your first run, you'll need to generate the HelloWorld contract wrapper:
 `./gradlew generateContractWrappers`
 
