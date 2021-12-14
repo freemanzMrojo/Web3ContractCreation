@@ -30,11 +30,21 @@ dependencies {
     implementation "org.web3j:core:$web3jVersion",
             "ch.qos.logback:logback-core:$logbackVersion",
             "ch.qos.logback:logback-classic:$logbackVersion"
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+
     implementation("org.web3j:web3j-unit:$web3jVersion")
     implementation("org.web3j:web3j-evm:$web3jVersion")
+
+    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'com.nimbusds:nimbus-jose-jwt:8.20.2'
+    implementation 'org.apache.tuweni:tuweni-bytes:2.0.0'
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.69'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+
 }
 
 jar {
