@@ -36,8 +36,6 @@ public class Web3ContractCreation {
   private static final String walletPassword = System.getenv().getOrDefault("WEB3J_WALLET_PASSWORD", "");
   private static final String walletPath = System.getenv().getOrDefault("WEB3J_WALLET_PATH", "test-wallet.json");
 
-  // set following to true to use raw private key for credentials
-  private static final boolean USE_PRV_KEY_CREDS = true; // use raw private key OR use wallet file
   // https://github.com/ConsenSys/quorum-dev-quickstart/blob/master/files/besu/config/besu/IBFTgenesis.json
   private static final String TEST_PRV_KEY = "db8252046e5f8e9328410d57dbe72c60b5c80958b0504d7da79bb6dfbcae5cf1";
   private static final String TEST_PUB_KEY = "f8d61b1a090ec4becb58987febc782b0730ebf1c9dbcd3b881c93fd0a16ca02b64c824b73bb4ee61f5b093db6bff658a02c777fefd5af9719f7f09da841d4f13";
@@ -45,8 +43,7 @@ public class Web3ContractCreation {
   private static final Web3j besu = Web3j.build(new HttpService(nodeUrl));
 
   public static void main(String[] args) throws Exception {
-    Credentials credentials = USE_PRV_KEY_CREDS ? CredentialsFactory.getCredentialsFromPrivateKey(TEST_PRV_KEY)
-            : CredentialsFactory.getCredentialsFromWalletFile(walletPassword, walletPath);
+    Credentials credentials = Credentials.create(TEST_PRV_KEY, TEST_PUB_KEY);
 
     final Instant start = Instant.now();
 
